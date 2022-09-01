@@ -3,6 +3,7 @@ package com.github.AleksoTH.BackendDemo.DataStructures;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,14 +15,14 @@ import javax.persistence.Table;
 public class User {
 	    @Id
 	    @GeneratedValue
-	    private int id;
+	    private long id;
 	    
 	    private String username;
 	    
-	    @OneToMany(mappedBy="user")
+	    @OneToMany(mappedBy="user", cascade = CascadeType.ALL, orphanRemoval = true)
 	    private List<ScoreEntry> scores = new ArrayList<ScoreEntry>();
 
-		public int getId() {
+		public long getId() {
 			return id;
 		}
 
@@ -29,7 +30,7 @@ public class User {
 			return username;
 		}
 
-		public void setId(int id) {
+		public void setId(long id) {
 			this.id = id;
 		}
 

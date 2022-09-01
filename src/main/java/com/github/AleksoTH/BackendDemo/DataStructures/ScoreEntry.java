@@ -11,18 +11,28 @@ import javax.persistence.Table;
 @Table(name = "scores")
 @Entity
 public class ScoreEntry {
-	
+
+
 	@Id
     @GeneratedValue
-    private int id;
+    private long id;
 	
 	private long score;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+	@ManyToOne
 	private User user;
+	
+   
 
-	public int getId() {
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public long getId() {
 		return id;
 	}
 
@@ -30,20 +40,12 @@ public class ScoreEntry {
 		return score;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	public void setScore(long score) {
 		this.score = score;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 	
