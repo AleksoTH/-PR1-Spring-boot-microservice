@@ -52,7 +52,7 @@ public class SecurityConfig
         .httpBasic()
         .and()
         .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().headers().frameOptions().disable();
+        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and().headers().frameOptions().disable();
 		return http.build();
      
     }

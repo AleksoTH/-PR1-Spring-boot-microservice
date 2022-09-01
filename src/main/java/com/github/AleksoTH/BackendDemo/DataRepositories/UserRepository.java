@@ -10,4 +10,5 @@ import com.github.AleksoTH.BackendDemo.DataStructures.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer>{
 	Optional<User> findById(Long id);
+	Optional<User> findUserByUsername(String username);
 }
